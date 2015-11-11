@@ -1,10 +1,14 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Entity
 {
     protected static final int INFINITY = 999;
 
     protected final int id;
+    protected List<Integer> neighbours;
 
     // Each entity will have a distance table
     protected int[][] distanceTable = new int[NetworkSimulator.NUMENTITIES]
