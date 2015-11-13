@@ -1,11 +1,14 @@
 package main;
 
+import java.util.Arrays;
+
 public class Entity0 extends Entity
 {
     // Perform any necessary initialization in the constructor
     public Entity0()
     {
-        super(0, new int[] {0, 1, 3, 7});
+        // initializes the entity with the appropriate id, initial cost and direct neighbours
+        super(0, new int[] {0, 1, 3, 7}, Arrays.asList(1, 2, 3));
     }
     
     // Handle updates when a packet is received.  Students will need to call
@@ -16,21 +19,21 @@ public class Entity0 extends Entity
     @Override
     public void update(Packet p)
     {
-        int source = p.getSource();
+        int source = p.getSource();         // extracts source id (comparable to IP address)
+        int[] payload = extractPayload(p);  // extracts packet payload
 
-        if (p.isCostsEqual(distanceTable[source])) {
+        /**
+         * Terminated the method prematurely if not updates were made to the DV table.
+         */
+        if (isCostsEqual(source, payload)) {
             printDT();
             return;
         }
 
-        addNewPaths(source, extractPayload(p));
-    }
-
-    @Override
-    public void transmit() {
-        transmitTable(id, 1, distanceTable[id]);
-        transmitTable(id, 2, distanceTable[id]);
-        transmitTable(id, 3, distanceTable[id]);
+        // updates the table with the new path weights and
+        // recalculates the path cost from this entity
+        // to its direct neighbours.
+        addNewPaths(source, payload);
     }
 
     @Override

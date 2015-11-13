@@ -63,11 +63,4 @@ public class Packet
         return str;
         
     }
-
-    public boolean isCostsEqual(int[] costs) {
-        for (int i = 0; i < NetworkSimulator.NUMENTITIES; i++)
-            if (costs[i] != mincost[i])
-                return false;
-        return true;
-    }
 }
