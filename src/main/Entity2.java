@@ -9,6 +9,9 @@ public class Entity2 extends Entity
     {
         // initializes the entity with the appropriate id, initial cost and direct neighbours
         super(2, new int[] {3, 1, 0, 2}, Arrays.asList(0, 1, 3));
+
+        // Used in Test 2 to remove the link between 1 and 2
+        // super(2, new int[] {3, 1, 0, 2}, Arrays.asList(0, 3));
     }
     
     // Handle updates when a packet is received.  Students will need to call

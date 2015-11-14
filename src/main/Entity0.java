@@ -9,6 +9,9 @@ public class Entity0 extends Entity
     {
         // initializes the entity with the appropriate id, initial cost and direct neighbours
         super(0, new int[] {0, 1, 3, 7}, Arrays.asList(1, 2, 3));
+
+        // Used in Test 1
+        // super(0, new int[] {0, 1, 3, 7}, Arrays.asList(2, 3));
     }
     
     // Handle updates when a packet is received.  Students will need to call

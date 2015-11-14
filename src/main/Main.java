@@ -16,5 +16,12 @@ public class Main {
                 ((Integer) 10000) == ((Integer) 10000)
         );
 
+        System.out.println(
+                ((Integer) 0) == ((Integer) 0)
+        );
+
+        System.out.println(
+                ((Integer) 10000) == ((Integer) 0)
+        );
     }
 }

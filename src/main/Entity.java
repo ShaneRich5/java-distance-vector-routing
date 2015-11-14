@@ -41,8 +41,10 @@ public abstract class Entity
         // initializes all path to the appropriate default cost
         for (int i = 0; i < NetworkSimulator.NUMENTITIES; i++)
             for (int j = 0; j < NetworkSimulator.NUMENTITIES; j++) {
-                if (i == id)
+                if (i == id) {
                     distanceTable[i][j] = initialDistances[j];
+                    distanceTable[j][i] = initialDistances[j];
+                }
                 else
                     distanceTable[i][j] = INFINITY;
             }
@@ -79,9 +81,10 @@ public abstract class Entity
                 if (distanceTable[row][col] < distanceTable[id][col]) {
                     int tmp = distanceTable[row][col] + distanceTable[id][row];
 
-                    if (tmp < distanceTable[id][col])
+                    if (tmp < distanceTable[id][col]) {
                         distanceTable[id][col] = tmp;
-
+                        distanceTable[col][id] = tmp;
+                    }
                 }
             }
         }

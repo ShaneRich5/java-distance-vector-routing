@@ -1,6 +1,7 @@
 package main;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Entity1 extends Entity
 {
@@ -9,6 +10,12 @@ public class Entity1 extends Entity
     {
         // initializes the entity with the appropriate id, initial cost and direct neighbours
         super(1, new int[] {1, 0, 1, INFINITY}, Arrays.asList(0, 2));
+
+        // Used in Test 1 to remove the link between 0 and 1
+        // super(1, new int[] {1, 0, 1, INFINITY}, Arrays.asList(2));
+
+        // Used in Test 2 to remove the link between 1 and 2
+        // super(1, new int[] {1, 0, 1, INFINITY}, Collections.singletonList(0));
     }
     
     // Handle updates when a packet is received.  Students will need to call
